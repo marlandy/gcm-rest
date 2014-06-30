@@ -15,7 +15,8 @@
 * start Apache Tomcat
 
 ## API ##
-* Registrations
+* **Registrations**
+It should be called when device id is returned by Google Cloud Messaging. 
 ```
 Url: http://YOUR_SERVER_IP:PORT/gcm-rest/api/registrations
 Content-Type: application/x-www-form-urlencoded
@@ -23,7 +24,8 @@ Method: POST
 Params: deviceId=APA91bE9f_SCHrrUvTlkibvAyfpk3Ai9YoEIAPhn50tVkryBLolM0RHdbh53tC27VdRcMTWwyervn4zL4SiDewp103qV1Rx_AaFs9szEnT1TKuptWm9p-4WLuGUiVvDy2VVoMy5X2YupjtKD-XA8Bf6b-4MW7U_mdojhU9JB1CD0-MIUW9qFNY0
 ```
 
-* Notifications
+* **Notifications**
+It should be called when we want to send a notification to one or many devices. Accepts both JSON or XML formats.
 ```
 Url: http://YOUR_SERVER_IP:PORT/gcm-rest/api/notifications
 Content-Type: application/json
