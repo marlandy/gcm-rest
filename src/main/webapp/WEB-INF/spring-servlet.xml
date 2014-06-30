@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.autentia.tutorial.gcm.api"/>
+
+
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+
+    <!--
+    About contentNegotiationManager: http://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc
+    -->
+    <bean id="contentNegotiationManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true"/>
+        <property name="useJaf" value="false"/>
+        <property name="ignoreAcceptHeader" value="false"/>
+        <property name="favorParameter" value="true"/>
+        <property name="parameterName" value="format"/>
+        <property name="mediaTypes">
+            <util:map>
+                <entry key="json" value="application/json"/>
+                <entry key="xml" value="application/xml"/>
+            </util:map>
+        </property>
+        <property name="defaultContentType" value="application/json"/>
+    </bean>
+
+</beans>
