@@ -39,7 +39,7 @@ public class NotificationController {
         validateBadge(notification.getBadge());
         validateTittle(notification.getTitle());
         validateMessage(notification.getMessage());
-        validateDeviceIdsToSend(notification.getDeviceIdsToSend());
+        validateDeviceIdsToSend(notification.getRegistrationIdsToSend());
     }
 
     private void validateBadge(Integer badge) {

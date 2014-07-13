@@ -26,10 +26,10 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registrations", method = RequestMethod.POST)
-    public @ResponseBody HttpEntity<String> sendNotification(@RequestParam String deviceId) {
-        LOG.trace("Registering device id {}", deviceId);
-        deviceDAO.addDeviceId(deviceId);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody HttpEntity<String> sendNotification(@RequestParam String registrationId) {
+        LOG.trace("Registering id {}", registrationId);
+        deviceDAO.addRegistrationId(registrationId);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

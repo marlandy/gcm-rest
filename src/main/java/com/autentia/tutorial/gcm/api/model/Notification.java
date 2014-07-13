@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.Arrays;
 
 @XmlRootElement
-@XmlType(propOrder = {"title", "message", "badge", "deviceIdsToSend"})
+@XmlType(propOrder = {"title", "message", "badge", "registrationIdsToSend"})
 public class Notification {
 
     private Integer badge;
@@ -17,7 +17,7 @@ public class Notification {
 
     private String message;
 
-    private String[] deviceIdsToSend;
+    private String[] registrationIdsToSend;
 
     public Integer getBadge() {
         return badge;
@@ -43,12 +43,12 @@ public class Notification {
         this.message = message;
     }
 
-    public String[] getDeviceIdsToSend() {
-        return deviceIdsToSend;
+    public String[] getRegistrationIdsToSend() {
+        return registrationIdsToSend;
     }
 
-    public void setDeviceIdsToSend(String[] deviceIdsToSend) {
-        this.deviceIdsToSend = deviceIdsToSend;
+    public void setRegistrationIdsToSend(String[] registrationIdsToSend) {
+        this.registrationIdsToSend = registrationIdsToSend;
     }
 
     @Override
@@ -63,14 +63,14 @@ public class Notification {
         final Notification other = (Notification) o;
         return new EqualsBuilder().append(this.badge, other.getBadge()).append(this.title, other.getTitle()).
                 append(this.message, other.getMessage()).
-                append(this.deviceIdsToSend, this.getDeviceIdsToSend()).isEquals();
+                append(this.registrationIdsToSend, this.getRegistrationIdsToSend()).isEquals();
 
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder().append(this.badge).append(this.title).append(this.message).
-                append(this.deviceIdsToSend).hashCode();
+                append(this.registrationIdsToSend).hashCode();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Notification {
                 "badge='" + badge + '\'' +
                 ", title='" + title + '\'' +
                 ", message='" + message + '\'' +
-                ", deviceIdsToSend=" + (deviceIdsToSend == null ? null : Arrays.asList(deviceIdsToSend)) +
+                ", registrationIdsToSend=" + (registrationIdsToSend == null ? null : Arrays.asList(registrationIdsToSend)) +
                 '}';
     }
 }

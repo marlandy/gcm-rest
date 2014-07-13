@@ -15,12 +15,6 @@
     <context:property-placeholder location="classpath:configuration.properties"/>
 
     <!-- Google Cloud Messaging sender -->
-    <!--
-    <bean id="gcmSender" class="com.google.android.gcm.server.Sender">
-        <constructor-arg name="key" value="${gcmserverkey}"/>
-    </bean>
-    -->
-
     <bean id="gcmSender" class="com.autentia.tutorial.gcm.service.UTF8Sender">
         <constructor-arg name="key" value="${gcmserverkey}"/>
     </bean>

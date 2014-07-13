@@ -39,7 +39,7 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
 
     @Override
     public void sendNotification(Notification notification) {
-        final List<String> validDeviceIds = getValidDeviceIds(notification.getDeviceIdsToSend());
+        final List<String> validDeviceIds = getValidDeviceIds(notification.getRegistrationIdsToSend());
         if (CollectionUtils.isEmpty(validDeviceIds)) {
             LOG.error("No valid devices to send notification");
             return;
@@ -54,7 +54,7 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
     }
 
     private List<String> getValidDeviceIds(String[] deviceIdsInNotification) {
-        final List<String> registeredDeviceIds = deviceDAO.getDeviceIds();
+        final List<String> registeredDeviceIds = deviceDAO.getRegistrationds();
         final List<String> validDeviceIds = new ArrayList<>();
         for (String deviceIdInNotification : deviceIdsInNotification) {
             if (registeredDeviceIds.contains(deviceIdInNotification)) {
@@ -100,8 +100,8 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
         String canonicalRegId = result.getCanonicalRegistrationId();
         if (canonicalRegId != null) {
             LOG.info("Device with id {} has more than one registration id. Updating data ", deviceId);
-            deviceDAO.removeDeviceId(deviceId);
-            deviceDAO.addDeviceId(canonicalRegId);
+            deviceDAO.removeRegistrationId(deviceId);
+            deviceDAO.addRegistrationId(canonicalRegId);
         }
     }
 
@@ -109,7 +109,7 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
         final String error = result.getErrorCodeName();
         if (error.equals(Constants.ERROR_NOT_REGISTERED)) {
             LOG.info("Unkown device id {}", deviceId);
-            deviceDAO.removeDeviceId(deviceId);
+            deviceDAO.removeRegistrationId(deviceId);
         } else {
             LOG.error("Error sending message to {}", deviceId, error);
         }

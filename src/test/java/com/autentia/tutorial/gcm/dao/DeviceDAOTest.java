@@ -24,23 +24,23 @@ public class DeviceDAOTest {
 
     @After
     public void deleteAllDeviceIds() {
-        dao.removeDeviceId(DEVICE_ID_1);
-        dao.removeDeviceId(DEVICE_ID_2);
-        dao.removeDeviceId(DEVICE_ID_3);
+        dao.removeRegistrationId(DEVICE_ID_1);
+        dao.removeRegistrationId(DEVICE_ID_2);
+        dao.removeRegistrationId(DEVICE_ID_3);
     }
 
     @Test
     public void shouldAddAndGetDeviceIdsSuccessfully() {
-        List<String> deviceIds = dao.getDeviceIds();
+        List<String> deviceIds = dao.getRegistrationds();
         assertNotNull(deviceIds);
         assertTrue(deviceIds.isEmpty());
 
-        dao.addDeviceId(DEVICE_ID_1);
-        dao.addDeviceId(DEVICE_ID_1); // duplicated!!
-        dao.addDeviceId(DEVICE_ID_2);
-        dao.addDeviceId(DEVICE_ID_3);
+        dao.addRegistrationId(DEVICE_ID_1);
+        dao.addRegistrationId(DEVICE_ID_1); // duplicated!!
+        dao.addRegistrationId(DEVICE_ID_2);
+        dao.addRegistrationId(DEVICE_ID_3);
 
-        deviceIds = dao.getDeviceIds();
+        deviceIds = dao.getRegistrationds();
         assertEquals(3, deviceIds.size());
         assertTrue(deviceIds.contains(DEVICE_ID_1));
         assertTrue(deviceIds.contains(DEVICE_ID_2));
@@ -49,16 +49,16 @@ public class DeviceDAOTest {
 
     @Test
     public void shouldRemoveDeviceId() {
-        dao.addDeviceId(DEVICE_ID_1);
-        dao.addDeviceId(DEVICE_ID_2);
+        dao.addRegistrationId(DEVICE_ID_1);
+        dao.addRegistrationId(DEVICE_ID_2);
 
-        List<String> deviceIds = dao.getDeviceIds();
+        List<String> deviceIds = dao.getRegistrationds();
         assertEquals(2, deviceIds.size());
         assertTrue(deviceIds.contains(DEVICE_ID_1));
         assertTrue(deviceIds.contains(DEVICE_ID_2));
 
-        dao.removeDeviceId(DEVICE_ID_1);
-        deviceIds = dao.getDeviceIds();
+        dao.removeRegistrationId(DEVICE_ID_1);
+        deviceIds = dao.getRegistrationds();
         assertEquals(1, deviceIds.size());
         assertFalse(deviceIds.contains(DEVICE_ID_1));
         assertTrue(deviceIds.contains(DEVICE_ID_2));
@@ -67,14 +67,14 @@ public class DeviceDAOTest {
     @Test
     public void shouldNotRemoveAnyDeviceIdIfDeviceIdDoesntExist() {
         final String UNEXISTING_DEVICE_ID = "676A5F0NC71BBA-O013P-4401";
-        dao.addDeviceId(DEVICE_ID_1);
+        dao.addRegistrationId(DEVICE_ID_1);
 
-        List<String> deviceIds = dao.getDeviceIds();
+        List<String> deviceIds = dao.getRegistrationds();
         assertEquals(1, deviceIds.size());
         assertTrue(deviceIds.contains(DEVICE_ID_1));
 
-        dao.removeDeviceId(UNEXISTING_DEVICE_ID);
-        deviceIds = dao.getDeviceIds();
+        dao.removeRegistrationId(UNEXISTING_DEVICE_ID);
+        deviceIds = dao.getRegistrationds();
         assertEquals(1, deviceIds.size());
         assertTrue(deviceIds.contains(DEVICE_ID_1));
 

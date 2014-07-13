@@ -21,7 +21,7 @@ It should be called when device id is returned by Google Cloud Messaging.
 Url: http://YOUR_SERVER_IP:PORT/gcm-rest/api/registrations
 Content-Type: application/x-www-form-urlencoded
 Method: POST
-Params: deviceId=APA91bE9f_SCHrrUvTlkibvAyfpk3Ai9YoEIAPhn50tVkryBLolM0RHdbh53tC27VdRcMTWwyervn4zL4SiDewp103qV1Rx_AaFs9szEnT1TKuptWm9p-4WLuGUiVvDy2VVoMy5X2YupjtKD-XA8Bf6b-4MW7U_mdojhU9JB1CD0-MIUW9qFNY0
+Params: registrationId=APA91bE9f_SCHrrUvTlkibvAyfpk3Ai9YoEIAPhn50tVkryBLolM0RHdbh53tC27VdRcMTWwyervn4zL4SiDewp103qV1Rx_AaFs9szEnT1TKuptWm9p-4WLuGUiVvDy2VVoMy5X2YupjtKD-XA8Bf6b-4MW7U_mdojhU9JB1CD0-MIUW9qFNY0
 ```
 
 * **Notifications**
@@ -35,7 +35,7 @@ Request Raw Body:
 	"badge":1,
 	"title":"Notification title",
 	"message":"A message",
-	"deviceIdsToSend":[
+	"registrationIdsToSend":[
 	"APA91bE9f_SCHrrUvTlkibvAyfpk3Ai9YoEIAPhn50tVkryBLolM0RHdbh53tC27VdRcMTWwyervn4zL4SiDewp103qV1Rx_AaFs9szEnT1TKuptWm9p-4WLuGUiVvDy2VVoMy5X2YupjtKD-XA8Bf6b-4MW7U_mdojhU9JB1CD0-MIUW9qFNY0",
 	"OAN64bE7f_SCHrrUvTlkibvAyfpk9Ai3YoEIAPhn49tVkryaaOlM0RHdbh33tC42VdRcMTWwyervn5zL6SiDewp456qV1Rx_AaFs1szEnT1TKuptWm4p-5WLuGUiVvDy7VVoMy8X0YepjtKD-WA3Bf2a-1MW8P_mdojhU9JB2CD6-MIUW5qFNY4"
 	]

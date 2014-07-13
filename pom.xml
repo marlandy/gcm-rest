@@ -4,7 +4,7 @@
     <groupId>com.autentia.tutorial.gcm</groupId>
     <artifactId>gcm-rest</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Tutorial Google Cloud Messaging</name>
     <url>http://maven.apache.org</url>
 

@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface DeviceDAO {
 
-    void addDeviceId(String deviceId);
+    void addRegistrationId(String registrationId);
 
-    List<String> getDeviceIds();
+    List<String> getRegistrationds();
 
-    void removeDeviceId(String deviceId);
+    void removeRegistrationId(String registrationId);
 
 }
