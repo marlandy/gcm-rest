@@ -1,6 +1,7 @@
 package com.autentia.tutorial.gcm.service;
 
 
+import com.autentia.tutorial.gcm.api.exception.UnableToSendNotificationException;
 import com.autentia.tutorial.gcm.api.model.Notification;
 import com.autentia.tutorial.gcm.dao.DeviceDAO;
 import com.google.android.gcm.server.*;
@@ -68,9 +69,14 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
         final Message message = createMessage(notification);
         try {
             Result result = gcmSender.send(message, deviceId, MAX_RETRIES);
+            final String messageId = result.getMessageId();
+            if (messageId == null) {
+                LOG.error("Unable to send message {} . {}", result, message);
+                throw new UnableToSendNotificationException(result.toString());
+            }
             LOG.info("Message send successfully {}", result);
         } catch (IOException e) {
-            LOG.error("Unable to send message to device id: {}", deviceId);
+            LOG.error("Unable to send message to device id: {}", deviceId, e);
         }
     }
 

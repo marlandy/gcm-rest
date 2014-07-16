@@ -6,4 +6,8 @@ public class UnableToSendNotificationException extends RuntimeException {
         super("Unable to send notification");
     }
 
+    public UnableToSendNotificationException(String reason) {
+        super("Unable to send notification. Reason: " + reason);
+    }
+
 }
