@@ -16,7 +16,13 @@
 
 ## API ##
 * **Registrations**
+<<<<<<< HEAD
 It should be called when registration id is returned by Google Cloud Messaging.
+||||||| merged common ancestors
+It should be called when device id is returned by Google Cloud Messaging. 
+=======
+It should be called when registration id is returned by Google Cloud Messaging. 
+>>>>>>> e65a20464c43c288d2d89f016b46c207efaa2628
 ```
 Url: http://YOUR_SERVER_IP:PORT/gcm-rest/api/registrations
 Content-Type: application/x-www-form-urlencoded
