@@ -77,6 +77,7 @@ public class GCMNotificationSenderImpl implements GCMNotificationSender {
             LOG.info("Message send successfully {}", result);
         } catch (IOException e) {
             LOG.error("Unable to send message to device id: {}", deviceId, e);
+            throw new UnableToSendNotificationException("Internal comunication error");
         }
     }
 
